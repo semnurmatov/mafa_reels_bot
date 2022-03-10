@@ -1,5 +1,5 @@
 import TelegramBot from "node-telegram-bot-api";
-import {courseDocsId, greetingsText, startText} from "./ITextData";
+import {basicPlan, courseDocsId, greetingsText, proPlan, startText, submission} from "./ITextData";
 
 require('dotenv').config();
 
@@ -53,6 +53,15 @@ bot.on('callback_query', async function onCallbackQuery(cbQuery){
         chat_id: msg.chat.id,
         message_id: msg.message_id,
     };
+    let optsDone = {
+        chat_id: msg.chat.id,
+        message_id: msg.message_id,
+        reply_markup: {
+            inline_keyboard: [
+                [{ text: 'Подтверждение...', callback_data: 'submit' }],
+            ]
+        }
+    }
 
     const optsButton = {
         chat_id: msg.chat.id,
@@ -73,11 +82,15 @@ bot.on('callback_query', async function onCallbackQuery(cbQuery){
             opts = optsButton;
             break;
         case '1':
-            text = 'Номер карты ....';
-            opts = optsEmpty;
+            text = basicPlan;
+            opts = optsDone;
             break;
         case '2':
-            text = 'Номер карты ....';
+            text = proPlan;
+            opts = optsDone;
+            break;
+        case 'submit':
+            text = submission;
             opts = optsEmpty;
             break;
     }
