@@ -6,8 +6,9 @@
   "license": "UNLICENCED",
   "private": true,
   "scripts": {
+    "tsc": "tsc",
     "build": "yarn tsc",
-    "start": "yarn build && node dist/index.js",
+    "start": "yarn run tsc && node dist/index.js",
     "start:dev": "yarn ts-node-dev --respawn src/index.ts"
   },
   "devDependencies": {
