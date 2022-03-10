@@ -11,7 +11,7 @@ const options = {
     }
 };
 
-const bot = new TelegramBot(process.env.PUBLIC_GROUP_TOKEN, { polling: true});
+const bot = new TelegramBot(process.env.MAFA_BOT_TOKEN, { polling: true});
 bot.on('message', async (mes, metadata?) => {
     console.log("Message: " , mes);
     const chatId = mes.chat.id;
@@ -97,22 +97,6 @@ bot.on('callback_query', async function onCallbackQuery(cbQuery){
 
     await bot.editMessageText(text, opts);
 });
-
-
-// bot.on('message', async (mes, metadata) => {
-//     console.log(mes);
-//     const cahtId = mes.chat.id;
-//     const type = metadata.type;
-//     const options = {
-//         reply_markup: {
-//             inline_keyboard: [
-//                 [{ text: 'С чего начать...', callback_data: 'start' }],
-//             ]
-//         }
-//     };
-//
-//     await bot.sendMessage(cahtId, greetingsText, options);
-// });
 
 /*
 bot.sendMessage(mes.chat.id, "Welcome", {
