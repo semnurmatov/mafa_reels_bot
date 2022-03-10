@@ -6,7 +6,7 @@ import {basicPlan, courseDocsId, greetingsText, noCaptionFile, proPlan, startTex
 require('dotenv').config();
 
 const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
@@ -131,8 +131,8 @@ bot.on('callback_query', async function onCallbackQuery(cbQuery){
     await bot.editMessageText(text, opts);
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`)
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`)
 });
 
 
