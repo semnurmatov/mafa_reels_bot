@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "build": "yarn tsc",
-    "start": "yarn ts-node-dev --respawn src/public_bot.ts"
+    "start": "yarn build && node dist/index.js",
+    "start:dev": "yarn ts-node-dev --respawn src/index.ts"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
