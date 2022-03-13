@@ -39,7 +39,7 @@ export const startText = `
 `;
 
 export const basicPlan = `
-148$ / 1.620.000 сум
+90$ / 1.000.000 сум
 
 РЕКВИЗИТЫ: 
 
@@ -51,7 +51,7 @@ USD / $
 `;
 
 export const proPlan = `
-259 $ / 2.825.000 сум
+160$ / 1.775.000 сум
 
 РЕКВИЗИТЫ: 
 
